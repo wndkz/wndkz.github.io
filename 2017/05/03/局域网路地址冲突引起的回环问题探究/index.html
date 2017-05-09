@@ -1,0 +1,724 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="#局域网路地址冲突引起的回环问题探究 0x01、问题描述在接替局域网络管理不久就有同事报障JXL有网络连接但出现网络不通、不能上网现象，而所在HDL与JXL网络同源，所以认为是JXL主交换机及内部网络问题。时隔不久又有SXL同事报障网路不通，QQ传送文件速度缓慢。继而发现HDL也存在网络速度缓慢、网络连接显示正常但不能上网的情况。">
+<meta name="keywords" content="技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“局域网路地址冲突引起的回环问题探究”">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/局域网路地址冲突引起的回环问题探究/index.html">
+<meta property="og:site_name" content="深缄云泊">
+<meta property="og:description" content="#局域网路地址冲突引起的回环问题探究 0x01、问题描述在接替局域网络管理不久就有同事报障JXL有网络连接但出现网络不通、不能上网现象，而所在HDL与JXL网络同源，所以认为是JXL主交换机及内部网络问题。时隔不久又有SXL同事报障网路不通，QQ传送文件速度缓慢。继而发现HDL也存在网络速度缓慢、网络连接显示正常但不能上网的情况。">
+<meta property="og:image" content="file:///home/m87/360.png?lastModify=1493802483">
+<meta property="og:updated_time" content="2017-05-09T15:50:35.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“局域网路地址冲突引起的回环问题探究”">
+<meta name="twitter:description" content="#局域网路地址冲突引起的回环问题探究 0x01、问题描述在接替局域网络管理不久就有同事报障JXL有网络连接但出现网络不通、不能上网现象，而所在HDL与JXL网络同源，所以认为是JXL主交换机及内部网络问题。时隔不久又有SXL同事报障网路不通，QQ传送文件速度缓慢。继而发现HDL也存在网络速度缓慢、网络连接显示正常但不能上网的情况。">
+<meta name="twitter:image" content="file:///home/m87/360.png?lastModify=1493802483">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/局域网路地址冲突引起的回环问题探究/"/>
+
+
+
+
+
+  <title>“局域网路地址冲突引起的回环问题探究” | 深缄云泊</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?abeecb90d732bca9ea5dd93f0d2503be";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">深缄云泊</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/局域网路地址冲突引起的回环问题探究/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="h2y">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/yhh.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="深缄云泊">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                “局域网路地址冲突引起的回环问题探究”
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T15:29:11+08:00">
+                2017-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#局域网路地址冲突引起的回环问题探究</p>
+<h2 id="0x01、问题描述"><a href="#0x01、问题描述" class="headerlink" title="0x01、问题描述"></a>0x01、问题描述</h2><p>在接替局域网络管理不久就有同事报障JXL有网络连接但出现网络不通、不能上网现象，而所在HDL与JXL网络同源，所以认为是JXL主交换机及内部网络问题。时隔不久又有SXL同事报障网路不通，QQ传送文件速度缓慢。继而发现HDL也存在网络速度缓慢、网络连接显示正常但不能上网的情况。<a id="more"></a></p>
+<h2 id="0x02、线路是否回环：逐级检查设备线路"><a href="#0x02、线路是否回环：逐级检查设备线路" class="headerlink" title="0x02、线路是否回环：逐级检查设备线路"></a>0x02、线路是否回环：逐级检查设备线路</h2><p>网络显示连接但网络不通，并且电脑网络缓慢。所以推测网络线路出现回环造成广播风暴，从而影响网络带宽。于是逐级检查是否有人插错或插乱网络线路，但检查后并无结果，据调查，单位设备已经安装达五年左右，因无统一规划，而是在使用中不断修补增加，所以对网络线路与设备配置文件存在疑惑，是否是由于线路老化或者设备配置命令因断电丢失而造成的节点网络拥塞。使用Telnet进入网络设备内部发现配置存在并且正常，但命令过于简单，只能达到上网需求。</p>
+<h2 id="0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽"><a href="#0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽" class="headerlink" title="0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽"></a>0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽</h2><p>查看所在单位网络拓扑，发现网络中上网与视频监控串联在同一交换设备，而此现象不止一台交换机，由于交换机内并未做端口隔离，由此认为是监控系统影响了网络带宽，因而造成网络缓慢，电脑显示虽有连接却不能上网。于是联系网络服务商升级带宽。当升级到视频监控系统不影响网络带宽资源后，仍然发现故障区域不能正常上网。</p>
+<h2 id="0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件"><a href="#0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件" class="headerlink" title="0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件"></a>0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件</h2><p><img src="file:///home/m87/360.png?lastModify=1493802483" alt="img"></p>
+<p>在折腾了两天后，认为网络故障不应该在物理线路和网络带宽问题上，于是转向软件方面。使用ping命令发送持续测试报文，发现收包只有零散几条，而ping命令的长报文全部丢失，使用笔记本到JXL与SXL使用Wireshark抓包软件，抓包发现在相应楼宇主交换机上发现大量ARP报文，ARP报文的作用是为网络中查询路径，一般为动态网络配置分配地址情况下使用，所在单位恰好由主路由器动态分配IP地址，网络中有十余条ARP报文属正常现象，而查询到的ARP报文在一个时间段竟然达到上百条，所以推测有ARP病毒攻击，致使持续发错误的数据包报文，造成网络阻塞，正常网络报文不能发送成功。于是给存在故障的电脑安装杀毒软件并进行深度扫描，果不其然发现有存在ARP病毒造成网关欺骗，因此确定此次网络的主要故障为部分电脑上带有的ARP病毒，造成网络阻塞，经过杀毒软件扫描处理后，网络恢复正常。再次抓包发现网络依然有ARP报文，但并不影响正常网络工作，由此网络故障基本告一段落。</p>
+<h2 id="0x05、再次发现同样问题：电脑杀毒软件并不能解决"><a href="#0x05、再次发现同样问题：电脑杀毒软件并不能解决" class="headerlink" title="0x05、再次发现同样问题：电脑杀毒软件并不能解决"></a>0x05、再次发现同样问题：电脑杀毒软件并不能解决</h2><p>第一次解决网络问题后半年左右，又有同事报告网络局部不通，查看所处网络线路正常，认为与第一次故障基本相同，使用杀毒软件扫描处理后却发现并不能解决故障问题。</p>
+<h2 id="0x06、抓包发现ARP较多：Win-XP可以上网，Win-7及以上Windows不能"><a href="#0x06、抓包发现ARP较多：Win-XP可以上网，Win-7及以上Windows不能" class="headerlink" title="0x06、抓包发现ARP较多：Win XP可以上网，Win 7及以上Windows不能"></a>0x06、抓包发现ARP较多：Win XP可以上网，Win 7及以上Windows不能</h2><p>使用笔记本到故障区域抓包后发现ARP报文大量出现，由于第一次的故障而给单位同事都安装了杀毒软件，检查杀毒软件为正常状态，所以不认为故障是主机产生ARP病毒所致。分析抓包文件，发现大概有七台电脑持续发送ARP报文，而这七台电脑检查并无病毒干扰与特殊故障。同时在抓取的报文中除了电脑发送ARP报文外，还有五台左右的TP-Link及其它小型路由器也在持续发送ARP报文，TP-Link下联电脑产生的ARP并不能查看到，所以对电脑ARP报文的查询便成主要问题。在比较了正常网络区域和故障区域后发现一个奇怪现象：所有安装win xp系统电脑都能上网，而其他的win 7、win 8、win 10都有网络故障。自带笔记本系统为Linux系统，接入故障区域后也能够上网，由此看来此次ARP报文主要影响了win 7及以上的Windows系统电脑。若是网络病毒，最先受影响的应该是win xp系统电脑，而此次故障却反其道而行之，很是费解。</p>
+<h2 id="0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突"><a href="#0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突" class="headerlink" title="0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突"></a>0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突</h2><p>上网查询发现遇到问题的解决方案都是将接入层的小型路由器模式改为交换模式。究其根本，交换模式并不能完全解决单位电脑和手机连接无线的上网问题。经询问厂家及其他技术人员，从而推测在Windows系统的网络架构上，win xp系统网络限制比较宽松，而win 7及以上系统的网络架构则较为紧凑严格，所以，当出现网络报文等故障问题时，win xp系统可以上网而win 7及以上却出现有连接、无数据交换甚至断路的现象。</p>
+<h2 id="0x08、查询TP-Link及解决办法：更改地址"><a href="#0x08、查询TP-Link及解决办法：更改地址" class="headerlink" title="0x08、查询TP-Link及解决办法：更改地址"></a>0x08、查询TP-Link及解决办法：更改地址</h2><p>对于小型路由器的交换模式，研究后发现国内不仅TP-Link，还有其它很多小型家用路由器的初始地址都为192.168.0.1、192.168.1.1或者192.168.2.1，而此类地址正是所在单位内网的主要干路网络地址。如果家用路由器，则在家庭网络中，其网络服务商分配的地址为公有地址，接入家中的小型路由器则为私有地址，两者之间并不影响。顿时觉得造成单位网络故障的根本问题在于单位办公室内有同事私自架设即插即用的小型路由器，致使小型路由器地址与主网地址冲突，从而两者之间形成环路，导致网路主干线路ARP报文大幅度增加，导致网络有连接但不能上网。于是逐级为单位私自架设小型路由器的同事更改小型路由器的配置地址，从而避免与主网地址冲突。</p>
+<h2 id="0x09、后遗症：TP-Link重置问题"><a href="#0x09、后遗症：TP-Link重置问题" class="headerlink" title="0x09、后遗症：TP-Link重置问题"></a>0x09、后遗症：TP-Link重置问题</h2><p>配置结束后网路正常。但随之而来的新问题是单位同事并非计算机专业，有时由于断电、重置等特殊情况导致的小型路由器配置丢失情况时有发生，如果每次让网管中心人员修改配置，对于网管中心的人员工作量较大，也并不现实。</p>
+<h2 id="0x10、终招：主干网路禁止小型路由器接入"><a href="#0x10、终招：主干网路禁止小型路由器接入" class="headerlink" title="0x10、终招：主干网路禁止小型路由器接入"></a>0x10、终招：主干网路禁止小型路由器接入</h2><p>对于有些私自接入的小型路由器并不能通知网管中心，而致使继续影响网络环境的小型路由器，可以在路由器或者二层交换机上直接禁用其mac地址，从而让网络保持通畅，相关配置命令如下：<br>Swith(config)# mac address-table static xxxx.xxxx.xxxx vlan id drop<br>注：不同设备命令不同，此为思科交换机命令。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>本次网络故障持续时间长，问题波及范围广。究其根本问题是网络组建时考虑不足，因而对网络设备配置缺失，从而造成故障问题出现后无应付能力。所以搭建网络需要合理规划，以确保各类网络井然有序。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/yhh.jpg"
+               alt="h2y" />
+          <p class="site-author-name" itemprop="name">h2y</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01、问题描述"><span class="nav-number">1.</span> <span class="nav-text">0x01、问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02、线路是否回环：逐级检查设备线路"><span class="nav-number">2.</span> <span class="nav-text">0x02、线路是否回环：逐级检查设备线路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽"><span class="nav-number">3.</span> <span class="nav-text">0x03、监控设备致使带宽不足：网络服务商查询线路，升级网路带宽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件"><span class="nav-number">4.</span> <span class="nav-text">0x04、网络抓包发现电脑存在ARP报文：安装杀毒软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05、再次发现同样问题：电脑杀毒软件并不能解决"><span class="nav-number">5.</span> <span class="nav-text">0x05、再次发现同样问题：电脑杀毒软件并不能解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06、抓包发现ARP较多：Win-XP可以上网，Win-7及以上Windows不能"><span class="nav-number">6.</span> <span class="nav-text">0x06、抓包发现ARP较多：Win XP可以上网，Win 7及以上Windows不能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突"><span class="nav-number">7.</span> <span class="nav-text">0x07、系统的网络底层设计问题：小型路由器地址与网络主路地址冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08、查询TP-Link及解决办法：更改地址"><span class="nav-number">8.</span> <span class="nav-text">0x08、查询TP-Link及解决办法：更改地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09、后遗症：TP-Link重置问题"><span class="nav-number">9.</span> <span class="nav-text">0x09、后遗症：TP-Link重置问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10、终招：主干网路禁止小型路由器接入"><span class="nav-number">10.</span> <span class="nav-text">0x10、终招：主干网路禁止小型路由器接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">11.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">h2y</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
