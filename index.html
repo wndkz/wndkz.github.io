@@ -349,8 +349,7 @@
 
       
         
-          
-            <p>##Blog （网络日志）</p>
+          <p>##Blog （网络日志）</p>
 <ul>
 <li><p>网络日志，外语全名weB LOG，后来缩写为BLOG。</p>
 </li>
@@ -358,78 +357,14 @@
 </li>
 <li>简言之，网络日志就是以网络作为载体，简易迅速便捷地发布自己的心得，及时有效轻松地与他人进行交流，再集丰富多彩的个性化展示于一体的综合性平台。</li>
 </ul>
-<p>免费易用的Blog层出不穷，使用者亦多有各自见解。</p>
-<p>现将在Linux环境下搭建GitHub博客相关内容作以回顾：</p>
-<p><strong>Step1 检查系统是否安装必要组件</strong><br>安装前必须检查是否安装<strong>git</strong>、<strong>nodejs</strong>以及<strong>npm</strong><br>直接在命令行输入即可：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ git</div><div class="line">usage: git --version -C &lt;path&gt;</div><div class="line">		  [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</div><div class="line">           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]</div><div class="line">           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]</div><div class="line">           &lt;command&gt; [&lt;args&gt;]</div></pre></td></tr></table></figure></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm</div><div class="line">bash:npm not found</div></pre></td></tr></table></figure>
-<p><strong>Step2 安装Nodejs </strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
-<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> nvm install stable</div><div class="line"></div><div class="line">m87@m87:~$ nvm install stable</div><div class="line"></div><div class="line">Downloading and installing node v8.1.3...</div><div class="line"></div><div class="line">Downloading https://nodejs.org/dist/v8.1.3/node-v8.1.3-linux-x64.tar.xz...</div><div class="line"><span class="meta"></span></div><div class="line">######################################################################## 100.0%</div><div class="line"></div><div class="line">Computing checksum with sha256sum</div><div class="line"></div><div class="line">Checksums matched!</div><div class="line"></div><div class="line">nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"</div><div class="line"></div><div class="line">Run nvm use --delete-prefix v8.1.3 to unset it.</div><div class="line"></div><div class="line">m87@m87:~$</div></pre></td></tr></table></figure>
-<p>执行以下命令即可使用nodejs，并在当前用户下使用npm</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ nvm use --delete-prefix v8.1.3</div></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm</div><div class="line">Usage: npm &lt;command&gt;</div><div class="line">where &lt;command&gt; is one of:</div><div class="line">access, adduser, bin, bugs, c, cache, completion, config,</div><div class="line">ddp, dedupe, deprecate, dist-tag, docs, doctor, edit,</div><div class="line">explore, get, help, help-search, i, init, install,</div><div class="line">install-test, it, link, list, ln, login, logout, ls,</div><div class="line">outdated, owner, pack, ping, prefix, prune, publish, rb,</div><div class="line">rebuild, repo, restart, root, run, run-script, s, se,</div><div class="line">search, set, shrinkwrap, star, stars, start, stop, t, team,</div><div class="line">test, tst, un, uninstall, unpublish, unstar, up, update, v,</div><div class="line">version, view, whoami</div></pre></td></tr></table></figure>
-<p>如此，则nodejs、npm、git相应都已安装。</p>
-<p><strong>Step3 安装hexo</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/home/m87/.nvm/versions/node/v8.1.3/bin/hexo -&gt; /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/bin/hexo</div><div class="line"><span class="meta"></span></div><div class="line">&gt; fsevents@1.1.2 install /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/fsevents</div><div class="line"><span class="meta">&gt;</span> node install</div><div class="line"><span class="meta"></span></div><div class="line">&gt; dtrace-provider@0.8.3 install /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/dtrace-provider</div><div class="line"><span class="meta">&gt;</span> node scripts/install.js</div><div class="line"><span class="meta"></span></div><div class="line">&gt; hexo-util@0.6.0 postinstall /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/hexo-util</div><div class="line"><span class="meta">&gt;</span> npm run build:highlight</div><div class="line"><span class="meta"></span></div><div class="line">&gt; hexo-util@0.6.0 build:highlight /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/hexo-util</div><div class="line"><span class="meta">&gt;</span> node scripts/build_highlight_alias.js &gt; highlight_alias.json</div><div class="line"></div><div class="line">+ hexo-cli@1.0.3</div><div class="line">added 218 packages in 21.617s</div></pre></td></tr></table></figure>
-<p>如此，hexo已经安装完成。</p>
-<p><strong>Step4 创建并部署Blog根目录</strong></p>
-<p>在本地～目录下创建Blog文件夹</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ mkdir Blog</div></pre></td></tr></table></figure>
-<p>在Blog文件夹目录下执行生成静态页面命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo generate        或者：hexo g</div></pre></td></tr></table></figure>
-<p>此时若出现如下报错：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ERROR Local hexo not found in ~/blog</div><div class="line">ERROR Try runing: 'npm install hexo --save'</div><div class="line">则执行命令：</div><div class="line">npm install hexo --save</div><div class="line">若无报错，自行忽略此步骤。</div></pre></td></tr></table></figure>
-<p>部署博客：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo deploy            或者：hexo d</div></pre></td></tr></table></figure>
-<p>若执行命令hexo deploy仍然报错：无法连接git或找不到git，则执行如下命令来安装hexo-deployer-git：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>若你未关联Github，则执行hexo deploy命令时终端会提示你输入Github的用户名和密码，即</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Username for 'https://github.com':</div><div class="line">Password for 'https://github.com':</div></pre></td></tr></table></figure>
-<p>hexo deploy命令执行成功后，能看到和打开<a href="http://localhost:4000页面。" target="_blank" rel="external">http://localhost:4000页面。</a></p>
-<p><strong>Step5 创建GitHub账号</strong></p>
-<p>访问<a href="https://github.com，点击Sing" target="_blank" rel="external">https://github.com，点击Sing</a> up进行注册，或已注册的点击Sing in登录。</p>
-<p>登录你的Github帐号，新建仓库，名为用户名.github.io固定写法。</p>
-<p><img src="https://raw.githubusercontent.com/wndkz/Image/master/github.jpg" alt="git"></p>
-<p><strong>Step6 关联GitHub</strong></p>
-<p>检查SSH keys是否存在Github</p>
-<p>执行如下命令，检查SSH keys是否存在。如果有文件id_rsa.pub或id_dsa.pub，则将SSH key添加到Github中，否则进入下一步生成SSH key。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> ls -al ~/.ssh</div></pre></td></tr></table></figure>
-<p>生成新的ssh key</p>
-<p>执行如下命令生成public/private rsa key pair，注意将your_email@example.com换成你自己注册Github的邮箱地址。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> ssh-keygen -t rsa -C "your_email@example.com"</div></pre></td></tr></table></figure>
-<p>默认会在相应路径下（~/.ssh/id_rsa.pub）生成id_rsa和id_rsa.pub两个文件。</p>
-<p>可以到用户根目录下使用快捷键“Ctrl+H”显示所有隐藏文件，进入“.ssh”文件，打开id_rsa.pub，复制其内所有内容。</p>
-<p>本地blog目录如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">_config.yml   </div><div class="line">db.json</div><div class="line">node_modules</div><div class="line">package.json</div><div class="line">scaffolds</div><div class="line">source</div><div class="line">themes</div></pre></td></tr></table></figure>
-<p>使用编辑器编辑“_config.yml”:</p>
-<p>打开后往下滑到最后，修改成下边的样子：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repository: https://github.com/wndkz/wndkz.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-<p>你需要将repository后wndkz换成你自己的用户名　　</p>
-<ul>
-<li>切记：冒号后必须有一个空格!</li>
-</ul>
-<p><strong>Step7 GitHub上添加SSH</strong></p>
-<p>点击GitHub页面右上角头像—&gt;Settings</p>
-<p>在左边会出现”Personal settings”栏目</p>
-<p>点击“SSH and GPG keys”</p>
-<p>点击New SSH key，添加在本地id_rsa.pub中内容，标题可以随便填写。</p>
-<p><strong>Step8 发布文章</strong></p>
-<p>终端cd到blog文件夹下，执行如下命令新建文章：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new "postName"</div></pre></td></tr></table></figure>
-<p>名为postName.md的文件会建在目录~/Blog/source/_posts下。</p>
-<p>文章编辑完成后，终端cd到blog文件夹下，执行如下命令来发布: </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate             //生成静态页面</div><div class="line">hexo deploy            //将文章部署到Github</div></pre></td></tr></table></figure>
-<p><strong>Step9 安装Next主题</strong></p>
-<p>终端cd到 blog 目录下执行如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<p>将blog目录下_config.yml里theme的名称landscape修改为next</p>
-<p>终端cd到blog目录下执行如下命令(每次部署文章的步骤)：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo clean           //清除缓存文件 (db.json) 和已生成的静态文件 (public)</div><div class="line"><span class="meta">$</span> hexo g             //生成缓存和静态文件</div><div class="line"><span class="meta">$</span> hexo d             //重新部署到服务器</div></pre></td></tr></table></figure>
-<p>至于更改theme内容，比如名称，描述，头像等去修改blog/_config.yml文件和blog/themes/next/_config.yml文件中对应的属性名称即可，不要忘记冒号:后加空格。</p>
-
-          
+<p>免费易用的Blog层出不穷，使用者亦多有各自见解。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/03/使用GitHub搭建Blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
