@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="深缄云泊">
 <meta property="og:description" content="Blog （网络日志） 网络日志，外语全名weB LOG，后来缩写为BLOG。  它是继Email、BBS、IM之后出现的第四种网络交流方式，是网络时代的个人“读者文摘”，是以超级链接为武器的网络日记，是代表着新的生活方式和新的工作方式，更代表着新的学习方式。  简言之，网络日志就是以网络作为载体，简易迅速便捷地发布自己的心得，及时有效轻松地与他人进行交流，再集丰富多彩的个性化展示于一体的综合性平">
 <meta property="og:image" content="https://raw.githubusercontent.com/wndkz/Image/master/github.jpg">
-<meta property="og:updated_time" content="2017-07-04T00:33:29.468Z">
+<meta property="og:updated_time" content="2017-07-04T00:36:37.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用GitHub搭建Blog">
 <meta name="twitter:description" content="Blog （网络日志） 网络日志，外语全名weB LOG，后来缩写为BLOG。  它是继Email、BBS、IM之后出现的第四种网络交流方式，是网络时代的个人“读者文摘”，是以超级链接为武器的网络日记，是代表着新的生活方式和新的工作方式，更代表着新的学习方式。  简言之，网络日志就是以网络作为载体，简易迅速便捷地发布自己的心得，及时有效轻松地与他人进行交流，再集丰富多彩的个性化展示于一体的综合性平">
@@ -360,22 +360,20 @@
 <p>免费易用的Blog层出不穷，使用者亦多有各自见解。</p>
 <a id="more"></a>
 <p>现将在Linux环境下搭建GitHub博客相关内容作以回顾：</p>
-<p><strong>Step1 检查系统是否安装必要组件</strong><br>安装前必须检查是否安装<strong>git</strong>、<strong>nodejs</strong>以及<strong>npm</strong><br>直接在命令行输入即可：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ git</div><div class="line">usage: git --version -C &lt;path&gt;</div><div class="line">		  [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</div><div class="line">           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]</div><div class="line">           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]</div><div class="line">           &lt;command&gt; [&lt;args&gt;]</div></pre></td></tr></table></figure></p>
+<h3 id="Step1-检查系统是否安装必要组件"><a href="#Step1-检查系统是否安装必要组件" class="headerlink" title="Step1 检查系统是否安装必要组件"></a>Step1 检查系统是否安装必要组件</h3><p>安装前必须检查是否安装<strong>git</strong>、<strong>nodejs</strong>以及<strong>npm</strong><br>直接在命令行输入即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ git</div><div class="line">usage: git --version -C &lt;path&gt;</div><div class="line">		  [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]</div><div class="line">           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]</div><div class="line">           [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]</div><div class="line">           &lt;command&gt; [&lt;args&gt;]</div></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm</div><div class="line">bash:npm not found</div></pre></td></tr></table></figure>
-<p><strong>Step2 安装Nodejs </strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span></div></pre></td></tr></table></figure>
+<h3 id="Step2-安装Nodejs"><a href="#Step2-安装Nodejs" class="headerlink" title="Step2 安装Nodejs"></a>Step2 安装Nodejs</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span></div></pre></td></tr></table></figure>
 <p>安装完成后，重启终端并执行下列命令即可安装 Node.js。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> nvm install stable</span></div><div class="line"></div><div class="line">m87@m87:~$ nvm install stable</div><div class="line"></div><div class="line">Downloading and installing node v8.1.3...</div><div class="line"></div><div class="line">Downloading https://nodejs.org/dist/v8.1.3/node-v8.1.3-linux-x64.tar.xz...</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment">####################################################################### 100.0%</span></span></div><div class="line"></div><div class="line">Computing checksum with sha256sum</div><div class="line"></div><div class="line">Checksums matched!</div><div class="line"></div><div class="line">nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"</div><div class="line"></div><div class="line">Run nvm use --delete-prefix v8.1.3 to unset it.</div><div class="line"></div><div class="line">m87@m87:~$</div></pre></td></tr></table></figure>
 <p>执行以下命令即可使用nodejs，并在当前用户下使用npm</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ nvm use --delete-prefix v8.1.3</div></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm</div><div class="line">Usage: npm &lt;command&gt;</div><div class="line">where &lt;command&gt; is one of:</div><div class="line">access, adduser, bin, bugs, c, cache, completion, config,</div><div class="line">ddp, dedupe, deprecate, dist-tag, docs, doctor, edit,</div><div class="line">explore, get, help, help-search, i, init, install,</div><div class="line">install-test, it, link, list, ln, login, logout, ls,</div><div class="line">outdated, owner, pack, ping, prefix, prune, publish, rb,</div><div class="line">rebuild, repo, restart, root, run, run-script, s, se,</div><div class="line">search, set, shrinkwrap, star, stars, start, stop, t, team,</div><div class="line">test, tst, un, uninstall, unpublish, unstar, up, update, v,</div><div class="line">version, view, whoami</div></pre></td></tr></table></figure>
 <p>如此，则nodejs、npm、git相应都已安装。</p>
-<p><strong>Step3 安装hexo</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="Step3-安装hexo"><a href="#Step3-安装hexo" class="headerlink" title="Step3 安装hexo"></a>Step3 安装hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/home/m87/.nvm/versions/node/v8.1.3/bin/hexo -&gt; /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/bin/hexo</div><div class="line"><span class="meta"></span></div><div class="line">&gt;<span class="bash"> fsevents@1.1.2 install /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/fsevents</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> node install</span></div><div class="line"><span class="meta"></span></div><div class="line">&gt;<span class="bash"> dtrace-provider@0.8.3 install /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/dtrace-provider</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> node scripts/install.js</span></div><div class="line"><span class="meta"></span></div><div class="line">&gt;<span class="bash"> hexo-util@0.6.0 postinstall /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/hexo-util</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> npm run build:highlight</span></div><div class="line"><span class="meta"></span></div><div class="line">&gt;<span class="bash"> hexo-util@0.6.0 build:highlight /home/m87/.nvm/versions/node/v8.1.3/lib/node_modules/hexo-cli/node_modules/hexo-util</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> node scripts/build_highlight_alias.js &gt; highlight_alias.json</span></div><div class="line"></div><div class="line">+ hexo-cli@1.0.3</div><div class="line">added 218 packages in 21.617s</div></pre></td></tr></table></figure>
 <p>如此，hexo已经安装完成。</p>
-<p><strong>Step4 创建并部署Blog根目录</strong></p>
-<p>在本地～目录下创建Blog文件夹</p>
+<h3 id="Step4-创建并部署Blog根目录"><a href="#Step4-创建并部署Blog根目录" class="headerlink" title="Step4 创建并部署Blog根目录"></a>Step4 创建并部署Blog根目录</h3><p>在本地～目录下创建Blog文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ mkdir Blog</div></pre></td></tr></table></figure>
 <p>在Blog文件夹目录下执行生成静态页面命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo generate        或者：hexo g</span></div></pre></td></tr></table></figure>
@@ -388,13 +386,11 @@
 <p>若你未关联Github，则执行hexo deploy命令时终端会提示你输入Github的用户名和密码，即</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Username for 'https://github.com':</div><div class="line">Password for 'https://github.com':</div></pre></td></tr></table></figure>
 <p>hexo deploy命令执行成功后，能看到和打开<a href="http://localhost:4000页面。" target="_blank" rel="external">http://localhost:4000页面。</a></p>
-<p><strong>Step5 创建GitHub账号</strong></p>
-<p>访问<a href="https://github.com" target="_blank" rel="external">https://github.com</a>   </p>
+<h3 id="Step5-创建GitHub账号"><a href="#Step5-创建GitHub账号" class="headerlink" title="Step5 创建GitHub账号"></a>Step5 创建GitHub账号</h3><p>访问<a href="https://github.com" target="_blank" rel="external">https://github.com</a>   </p>
 <p>点击Sing up进行注册，或已注册的点击Sing in登录。</p>
 <p>登录你的Github帐号，新建仓库，名为用户名.github.io固定写法。</p>
 <p><img src="https://raw.githubusercontent.com/wndkz/Image/master/github.jpg" alt="git"></p>
-<p><strong>Step6 关联GitHub</strong></p>
-<p>检查SSH keys是否存在Github</p>
+<h3 id="Step6-关联GitHub"><a href="#Step6-关联GitHub" class="headerlink" title="Step6 关联GitHub"></a>Step6 关联GitHub</h3><p>检查SSH keys是否存在Github</p>
 <p>执行如下命令，检查SSH keys是否存在。如果有文件id_rsa.pub或id_dsa.pub，则将SSH key添加到Github中，否则进入下一步生成SSH key。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> ls -al ~/.ssh</span></div></pre></td></tr></table></figure>
 <p>生成新的ssh key</p>
@@ -411,19 +407,16 @@
 <ul>
 <li>切记：冒号后必须有一个空格!</li>
 </ul>
-<p><strong>Step7 GitHub上添加SSH</strong></p>
-<p>点击GitHub页面右上角头像—&gt;Settings</p>
+<h3 id="Step7-GitHub上添加SSH"><a href="#Step7-GitHub上添加SSH" class="headerlink" title="Step7 GitHub上添加SSH"></a>Step7 GitHub上添加SSH</h3><p>点击GitHub页面右上角头像—&gt;Settings</p>
 <p>在左边会出现”Personal settings”栏目</p>
 <p>点击“SSH and GPG keys”</p>
 <p>点击New SSH key，添加在本地id_rsa.pub中内容，标题可以随便填写。</p>
-<p><strong>Step8 发布文章</strong></p>
-<p>终端cd到blog文件夹下，执行如下命令新建文章：</p>
+<h3 id="Step8-发布文章"><a href="#Step8-发布文章" class="headerlink" title="Step8 发布文章"></a>Step8 发布文章</h3><p>终端cd到blog文件夹下，执行如下命令新建文章：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new "postName"</div></pre></td></tr></table></figure>
 <p>名为postName.md的文件会建在目录~/Blog/source/_posts下。</p>
 <p>文章编辑完成后，终端cd到blog文件夹下，执行如下命令来发布: </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate             //生成静态页面</div><div class="line">hexo deploy            //将文章部署到Github</div></pre></td></tr></table></figure>
-<p><strong>Step9 安装Next主题</strong></p>
-<p>终端cd到 blog 目录下执行如下命令：</p>
+<h3 id="Step9-安装Next主题"><a href="#Step9-安装Next主题" class="headerlink" title="Step9 安装Next主题"></a>Step9 安装Next主题</h3><p>终端cd到 blog 目录下执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span></div></pre></td></tr></table></figure>
 <p>将blog目录下_config.yml里theme的名称landscape修改为next</p>
 <p>终端cd到blog目录下执行如下命令(每次部署文章的步骤)：</p>
@@ -602,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog-（网络日志）"><span class="nav-number">1.</span> <span class="nav-text">Blog （网络日志）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog-（网络日志）"><span class="nav-number">1.</span> <span class="nav-text">Blog （网络日志）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-检查系统是否安装必要组件"><span class="nav-number">1.1.</span> <span class="nav-text">Step1 检查系统是否安装必要组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-安装Nodejs"><span class="nav-number">1.2.</span> <span class="nav-text">Step2 安装Nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-安装hexo"><span class="nav-number">1.3.</span> <span class="nav-text">Step3 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-创建并部署Blog根目录"><span class="nav-number">1.4.</span> <span class="nav-text">Step4 创建并部署Blog根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step5-创建GitHub账号"><span class="nav-number">1.5.</span> <span class="nav-text">Step5 创建GitHub账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step6-关联GitHub"><span class="nav-number">1.6.</span> <span class="nav-text">Step6 关联GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step7-GitHub上添加SSH"><span class="nav-number">1.7.</span> <span class="nav-text">Step7 GitHub上添加SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step8-发布文章"><span class="nav-number">1.8.</span> <span class="nav-text">Step8 发布文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step9-安装Next主题"><span class="nav-number">1.9.</span> <span class="nav-text">Step9 安装Next主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
 
           </div>
