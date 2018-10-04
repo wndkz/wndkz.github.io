@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/03/局域网路地址冲突引起的回环问题探究/index.html">
 <meta property="og:site_name" content="深缄云泊">
 <meta property="og:description" content="#局域网路地址冲突引起的回环问题探究 0x01、问题描述在接替局域网络管理不久就有同事报障JXL有网络连接但出现网络不通、不能上网现象，而所在HDL与JXL网络同源，所以认为是JXL主交换机及内部网络问题。时隔不久又有SXL同事报障网路不通，QQ传送文件速度缓慢。继而发现HDL也存在网络速度缓慢、网络连接显示正常但不能上网的情况。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="file:///home/m87/360.png?lastModify=1493802483">
 <meta property="og:updated_time" content="2018-10-04T09:00:58.115Z">
 <meta name="twitter:card" content="summary">
@@ -775,7 +776,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (search_path.endsWith("json")) {

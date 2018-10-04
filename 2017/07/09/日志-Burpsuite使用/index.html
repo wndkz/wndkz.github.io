@@ -102,6 +102,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/09/日志-Burpsuite使用/index.html">
 <meta property="og:site_name" content="深缄云泊">
 <meta property="og:description" content="启动Burpsuite1m87@m87:~$ burpsuite">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp3.png">
@@ -413,7 +414,7 @@
       
 
       
-        <h3 id="启动Burpsuite"><a href="#启动Burpsuite" class="headerlink" title="启动Burpsuite"></a>启动Burpsuite</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">m87@m87:~$ burpsuite</div></pre></td></tr></table></figure>
+        <h3 id="启动Burpsuite"><a href="#启动Burpsuite" class="headerlink" title="启动Burpsuite"></a>启动Burpsuite</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m87@m87:~$ burpsuite</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp1.png" alt="Burp1"></p>
 <a id="more"></a>
 <p><img src="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp2.png" alt="Burp2"><br><img src="https://raw.githubusercontent.com/wndkz/Image/61fed9f3d3b09ee906ccef290bfdec8f8a5d6a05/burpsuite/burp3.png" alt="Burp3"></p>
@@ -781,7 +782,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (search_path.endsWith("json")) {

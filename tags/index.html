@@ -99,6 +99,7 @@
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="深缄云泊">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-10-04T09:00:58.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
@@ -570,7 +571,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (search_path.endsWith("json")) {
