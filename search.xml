@@ -8,7 +8,9 @@
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>GitHub,SSH,Blog</tag>
+        <tag>GitHub</tag>
+        <tag>SSH</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -19,7 +21,8 @@
         <category>Summary</category>
       </categories>
       <tags>
-        <tag>Blog,Summary</tag>
+        <tag>Blog</tag>
+        <tag>Summary</tag>
       </tags>
   </entry>
   <entry>
@@ -41,7 +44,8 @@
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>GitHub Blog,Hexo</tag>
+        <tag>Hexo</tag>
+        <tag>GitHub Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -71,10 +75,12 @@
     <url>%2F2017%2F05%2F01%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <categories>
-        <category>Blog,Hexo</category>
+        <category>Blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Hexo,Github</tag>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
 </search>
