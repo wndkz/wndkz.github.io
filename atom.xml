@@ -9,11 +9,6 @@
   <updated>2018-10-04T15:31:29.206Z</updated>
   <id>http://yoursite.com/</id>
   
-  <author>
-    <name>h2y</name>
-    
-  </author>
-  
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
@@ -115,11 +110,11 @@
       <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
     
     
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
       <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
     
       <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
