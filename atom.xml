@@ -35,11 +35,11 @@
       <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
     
     
+      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
       <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
     
       <category term="SSH" scheme="http://yoursite.com/tags/SSH/"/>
-    
-      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
     
   </entry>
   
