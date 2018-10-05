@@ -8,9 +8,9 @@
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
         <tag>GitHub</tag>
         <tag>SSH</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -44,8 +44,9 @@
         <category>Blog</category>
       </categories>
       <tags>
+        <tag>GitHub</tag>
+        <tag>Blog</tag>
         <tag>Hexo</tag>
-        <tag>GitHub Blog</tag>
       </tags>
   </entry>
   <entry>
