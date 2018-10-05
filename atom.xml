@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://wndkz.github.io/"/>
   <updated>2018-10-04T15:31:29.206Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://wndkz.github.io/</id>
   
   <author>
     <name>h2y</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>GitHub設置添加SSH</title>
-    <link href="http://yoursite.com/2018/10/04/GitHub%E8%A8%AD%E7%BD%AE%E6%B7%BB%E5%8A%A0SSH/"/>
-    <id>http://yoursite.com/2018/10/04/GitHub設置添加SSH/</id>
+    <link href="https://wndkz.github.io/2018/10/04/GitHub%E8%A8%AD%E7%BD%AE%E6%B7%BB%E5%8A%A0SSH/"/>
+    <id>https://wndkz.github.io/2018/10/04/GitHub設置添加SSH/</id>
     <published>2018-10-04T09:27:35.000Z</published>
     <updated>2018-10-04T15:31:29.206Z</updated>
     
@@ -32,21 +32,21 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/categories/Blog/"/>
     
     
-      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+      <category term="GitHub" scheme="https://wndkz.github.io/tags/GitHub/"/>
     
-      <category term="SSH" scheme="http://yoursite.com/tags/SSH/"/>
+      <category term="SSH" scheme="https://wndkz.github.io/tags/SSH/"/>
     
-      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/tags/Blog/"/>
     
   </entry>
   
   <entry>
     <title>写在工作一年之余</title>
-    <link href="http://yoursite.com/2017/07/13/%E5%86%99%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E4%B9%8B%E4%BD%99/"/>
-    <id>http://yoursite.com/2017/07/13/写在工作一年之余/</id>
+    <link href="https://wndkz.github.io/2017/07/13/%E5%86%99%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E4%B9%8B%E4%BD%99/"/>
+    <id>https://wndkz.github.io/2017/07/13/写在工作一年之余/</id>
     <published>2017-07-13T13:34:31.000Z</published>
     <updated>2018-10-04T15:31:14.973Z</updated>
     
@@ -58,19 +58,19 @@
     
     </summary>
     
-      <category term="Summary" scheme="http://yoursite.com/categories/Summary/"/>
+      <category term="Summary" scheme="https://wndkz.github.io/categories/Summary/"/>
     
     
-      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/tags/Blog/"/>
     
-      <category term="Summary" scheme="http://yoursite.com/tags/Summary/"/>
+      <category term="Summary" scheme="https://wndkz.github.io/tags/Summary/"/>
     
   </entry>
   
   <entry>
     <title>日志-Burpsuite使用</title>
-    <link href="http://yoursite.com/2017/07/09/%E6%97%A5%E5%BF%97-Burpsuite%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/07/09/日志-Burpsuite使用/</id>
+    <link href="https://wndkz.github.io/2017/07/09/%E6%97%A5%E5%BF%97-Burpsuite%E4%BD%BF%E7%94%A8/"/>
+    <id>https://wndkz.github.io/2017/07/09/日志-Burpsuite使用/</id>
     <published>2017-07-09T06:32:07.000Z</published>
     <updated>2018-10-04T15:25:59.659Z</updated>
     
@@ -83,17 +83,17 @@
     
     </summary>
     
-      <category term="Security" scheme="http://yoursite.com/categories/Security/"/>
+      <category term="Security" scheme="https://wndkz.github.io/categories/Security/"/>
     
     
-      <category term="Security" scheme="http://yoursite.com/tags/Security/"/>
+      <category term="Security" scheme="https://wndkz.github.io/tags/Security/"/>
     
   </entry>
   
   <entry>
     <title>使用GitHub搭建Blog</title>
-    <link href="http://yoursite.com/2017/07/03/%E4%BD%BF%E7%94%A8GitHub%E6%90%AD%E5%BB%BABlog/"/>
-    <id>http://yoursite.com/2017/07/03/使用GitHub搭建Blog/</id>
+    <link href="https://wndkz.github.io/2017/07/03/%E4%BD%BF%E7%94%A8GitHub%E6%90%AD%E5%BB%BABlog/"/>
+    <id>https://wndkz.github.io/2017/07/03/使用GitHub搭建Blog/</id>
     <published>2017-07-03T11:46:39.000Z</published>
     <updated>2018-10-05T02:17:54.158Z</updated>
     
@@ -112,21 +112,21 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/categories/Blog/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="GitHub" scheme="https://wndkz.github.io/tags/GitHub/"/>
     
-      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/tags/Blog/"/>
     
-      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+      <category term="Hexo" scheme="https://wndkz.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>“RSS攻略”</title>
-    <link href="http://yoursite.com/2017/05/13/RSS%E9%98%85%E8%AF%BB%E6%94%BB%E7%95%A5/"/>
-    <id>http://yoursite.com/2017/05/13/RSS阅读攻略/</id>
+    <link href="https://wndkz.github.io/2017/05/13/RSS%E9%98%85%E8%AF%BB%E6%94%BB%E7%95%A5/"/>
+    <id>https://wndkz.github.io/2017/05/13/RSS阅读攻略/</id>
     <published>2017-05-13T07:29:11.000Z</published>
     <updated>2018-10-04T15:25:59.659Z</updated>
     
@@ -138,17 +138,17 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/categories/Blog/"/>
     
     
-      <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/tags/Blog/"/>
     
   </entry>
   
   <entry>
     <title>“局域网路地址冲突引起的回环问题探究”</title>
-    <link href="http://yoursite.com/2017/05/03/%E5%B1%80%E5%9F%9F%E7%BD%91%E8%B7%AF%E5%9C%B0%E5%9D%80%E5%86%B2%E7%AA%81%E5%BC%95%E8%B5%B7%E7%9A%84%E5%9B%9E%E7%8E%AF%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://yoursite.com/2017/05/03/局域网路地址冲突引起的回环问题探究/</id>
+    <link href="https://wndkz.github.io/2017/05/03/%E5%B1%80%E5%9F%9F%E7%BD%91%E8%B7%AF%E5%9C%B0%E5%9D%80%E5%86%B2%E7%AA%81%E5%BC%95%E8%B5%B7%E7%9A%84%E5%9B%9E%E7%8E%AF%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6/"/>
+    <id>https://wndkz.github.io/2017/05/03/局域网路地址冲突引起的回环问题探究/</id>
     <published>2017-05-03T07:29:11.000Z</published>
     <updated>2018-10-04T15:25:59.662Z</updated>
     
@@ -161,17 +161,17 @@
     
     </summary>
     
-      <category term="Network" scheme="http://yoursite.com/categories/Network/"/>
+      <category term="Network" scheme="https://wndkz.github.io/categories/Network/"/>
     
     
-      <category term="Network" scheme="http://yoursite.com/tags/Network/"/>
+      <category term="Network" scheme="https://wndkz.github.io/tags/Network/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/05/01/hello-world/"/>
-    <id>http://yoursite.com/2017/05/01/hello-world/</id>
+    <link href="https://wndkz.github.io/2017/05/01/hello-world/"/>
+    <id>https://wndkz.github.io/2017/05/01/hello-world/</id>
     <published>2017-05-01T07:29:11.000Z</published>
     <updated>2018-10-04T15:31:51.202Z</updated>
     
@@ -183,14 +183,14 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+      <category term="Blog" scheme="https://wndkz.github.io/categories/Blog/"/>
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/Blog/Hexo/"/>
+      <category term="Hexo" scheme="https://wndkz.github.io/categories/Blog/Hexo/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://wndkz.github.io/tags/Hexo/"/>
     
-      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
+      <category term="Github" scheme="https://wndkz.github.io/tags/Github/"/>
     
   </entry>
   
