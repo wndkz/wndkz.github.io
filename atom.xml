@@ -115,11 +115,11 @@
       <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
-    
       <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
     
       <category term="Blog" scheme="http://yoursite.com/tags/Blog/"/>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
